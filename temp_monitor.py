@@ -51,15 +51,18 @@ def coldest_window(monitor, k):
         avg = sum(window) / k
         if avg < min_avg:
             min_avg = avg
-        return minavg 
+        return min_avg
 
 def longest_rising_streak(monitor):
-    """
-    Retorna la longitud maxima de una secuencia de lecturas consecutivas
-    donde las temperaturas aumentan estrictamente.
-    """
-    # TODO: Implementar
-    pass
+    readings = monitor["readings"]
+    if not readings:
+        return 0
+    max_streak = 1
+    current_streak = 1
+    for i in range(1,len(readings)):
+        if readings[i]>readings[i-1]:
+            current_streak += 1
+        else: current_streak = 1 
 
 
 def main():

@@ -21,19 +21,13 @@ def add_reading(monitor, temp):
 
 
 def count(monitor):
-    """
-    Retorna el numero de lecturas agregadas.
-    """
-    # TODO: Implementar
-    pass
+      return len(monitor["readings"])
 
 
 def average_temp(monitor):
-    """
-    Retorna la temperatura promedio de todas las lecturas.
-    """
-    # TODO: Implementar
-    pass
+    if count(monitor) == 0:
+        return 0.0
+    return monitor["total"] / count(monitor)
 
 
 def format_readings(monitor):

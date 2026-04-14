@@ -40,18 +40,23 @@ def highest_temp(monitor):
      return max(monitor["readings"])
 
 
+import math
+
 def coldest_window(monitor, k):
     readings = monitor["readings"]
-    n = count(monitor)
-    if k > n or k <= 0:
-        return None
-    min_avg = float("inf")
+    n = len(readings)
+    # si k == 1, simplemente el mínimo
+    if k == 1:
+        return min(readings)
+    # calcular promedio de cada ventana de tamaño k
+    min_avg = math.inf
     for i in range(n - k + 1):
         window = readings[i:i+k]
         avg = sum(window) / k
         if avg < min_avg:
             min_avg = avg
-        return min_avg
+    return min_avg
+
 
 def longest_rising_streak(monitor):
     readings = monitor["readings"]
@@ -59,11 +64,13 @@ def longest_rising_streak(monitor):
         return 0
     max_streak = 1
     current_streak = 1
-    for i in range(1,len(readings)):
-        if readings[i]>readings[i-1]:
+    for i in range(1, len(readings)):
+        if readings[i] > readings[i-1]:  # estrictamente mayor
             current_streak += 1
-            max_streak = max (max_streak,current_streak)
-        else: current_streak = 1
+            max_streak = max(max_streak, current_streak)
+        else:
+            current_streak = 1
+    return max_streak
 
 
 def main():

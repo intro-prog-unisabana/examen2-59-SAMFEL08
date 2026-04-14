@@ -13,7 +13,11 @@ def init(max_readings):
 
 
 def add_reading(monitor, temp):
-   
+     if len(monitor["readings"]) < monitor["max"]:
+        monitor["readings"].append(temp)
+        monitor["total"] += temp
+    return monitor
+
 
 
 def count(monitor):

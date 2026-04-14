@@ -60,7 +60,7 @@ def longest_rising_streak(monitor):
     max_streak = 1
     current_streak = 1
     for i in range(1,len(readings)):
-        if readings[i]>readings[i-1]:i
+        if readings[i]>readings[-1]:
             current_streak += 1
             max_streak = max (max_streak,current_streak)
         else: current_streak = 1

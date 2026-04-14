@@ -51,7 +51,7 @@ def coldest_window(monitor, k):
         avg = sum(window) / k
         if avg < min_avg:
             min_avg = avg
-        return min_avg
+        return minavg 
 
 def longest_rising_streak(monitor):
     """

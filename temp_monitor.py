@@ -8,11 +8,8 @@
 
 
 def init(max_readings):
-    """
-    Crea y retorna un diccionario para almacenar hasta max_readings lecturas.
-    """
-    # TODO: Implementar
-    pass
+    return {"max": max_readings, "readings": [], "total": 0.0}
+    
 
 
 def add_reading(monitor, temp):

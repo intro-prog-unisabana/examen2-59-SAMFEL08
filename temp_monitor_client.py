@@ -12,7 +12,7 @@ def main():
 
         monitor = temp_monitor.init(n)
         for _ in range(n):
-            temp = float(f.readline().strip(sorted))
+            temp = float(f.readline().strip())
             monitor = temp_monitor.add_reading(monitor, temp)
 
 
